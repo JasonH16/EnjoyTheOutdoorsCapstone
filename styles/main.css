@@ -257,7 +257,32 @@ button {
     text-align: center;
     transition: transform 0.3s ease;
 }
+.sunset-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.sunset-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slight scale up on hover */
+}
+
+.sunset-button:active {
+    background-color: #397d39; /* Even darker green on click */
+    transform: scale(1); /* Reset scale */
+}
+.sunrise-sunset {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e0f7fa; /* Light blue background for sunrise/sunset info */
+    border-radius: 5px;
+}
 /* Card hover effect */
 .card:hover {
     transform: scale(1.03);

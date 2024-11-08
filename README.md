@@ -46,4 +46,5 @@ To run this project locally:
 - Adding interactive maps for better navigation and exploration.
 
 ---
-
+## Screenshots
+![Homeoage Screenshot](./images/home.png)

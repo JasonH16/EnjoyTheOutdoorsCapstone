@@ -22,17 +22,36 @@
     <br>
     <br>
  <main>
-    <h1>Parks</h1>
-    <div class="filters">
-        <select name="parkTypeSelect" id="parkTypeSelect">
-            <option value="">Select a park type...</option>
-        </select>
-        <select name="parkLocationSelect" id="parkLocationSelect">
-            <option value="">Select a park Location</option>
-        </select>
-        <button id="filterButton">Filter</button>
-    </div>
-    <div id="results"></div>
+
+     
+     <section class="hero">
+         <h1>Explore Beautiful Parks</h1>
+         <p>Discover nature's finest parks, perfect for hiking, relaxation, and family adventures.</p>
+        </section>
+        
+        <section class="filter-section">
+            <h2>Find Your Ideal Park</h2>
+            <select name="parkTypeSelect" id="parkTypeSelect" >
+                <option value="all">All Parks</option>
+                <option value="playground">Playground</option>
+                <option value="hiking">Hiking Trails</option>
+                <option value="picnic">Picnic Areas</option>
+            </select>
+            <button onclick="resetFilter()">Reset Filter</button>
+        </section>
+        <section class="filter-section">
+            <h2>Select a park Location</h2>
+            <select name="parkLocationSelect" id="parkLocationSelect">
+                <option value="all">All Parks</option>
+                <option value="playground">Playground</option>
+                <option value="hiking">Hiking Trails</option>
+                <option value="picnic">Picnic Areas</option>
+            </select>
+            
+        </section>
+        
+        <div id="results"></div>
+    
  </main>
 </body>
 </html>

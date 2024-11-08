@@ -44,7 +44,6 @@ function onContent() {
     parkTypesArray.forEach(parkTypeName => addPark(parkTypeName, parkTypeSelect));
     locationsArray.forEach(parkLocationName => addLocation(parkLocationName, parkLocationSelect))
     //renderParks();
-    filterButton.addEventListener("click", renderParks);
     parkTypeSelect.addEventListener("change", renderParks);
     parkLocationSelect.addEventListener("change", renderParks);
 }

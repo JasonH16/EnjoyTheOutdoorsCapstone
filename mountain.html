@@ -18,33 +18,45 @@
             <a href="parks.html">Parks</a>
         </nav>
     </header>
-    <br>
-    <br>
-    <br>
+  
   <main>
     <h1>Mountains</h1>
-    <br>
-    <br>
+  
+    <section class="hero">
+        <h1>Explore Majestic Mountains</h1>
+        <p>Discover breathtaking landscapes, towering peaks, and unforgettable trails.</p>
+    </section>
+    
+    <section class="selection">
+        <h2>Select A Mountain</h2>
+        <select name="mountainsSelect" id="mountainsSelect" onchange="displayMountainInfo()">
+            <option value="none">Select a mountain...</option>
+            <option value="mountain1">Mountain 1</option>
+            <option value="mountain2">Mountain 2</option>
+            <option value="mountain3">Mountain 3</option>
+        </select>
+        <button id="reset" onclick="resetSelection()">Reset</button>
+    </section>
+    
+    <section id="results" class="info-cards">
+        <!-- Cards will appear here based on selection -->
+    </section>   
+</main>
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  <footer class="footer">
+    <div class="footer-content">
+        <p>Follow us on:</p>
+        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+    </div>
+    <p>&copy; 2024 Enjoy The Outdoors</p>
+</footer>
 
-    <h2>Select A Mountain</h2>
-    <select name="mountainsSelect" id="mountainsSelect">
-        <option value="none">Select a mountain...</option>
-    </select>
-    <div id="results"></div>
-    <button id="reset">Reset</button>
-  </main>
-  <br>
-
-
-
-
-
-  <br>
-  <br>
-  <footer>
-    2024
-  </footer>
-   
 </body>
 
 </html>

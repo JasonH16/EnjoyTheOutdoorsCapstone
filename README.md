@@ -48,3 +48,5 @@ To run this project locally:
 ---
 ## Screenshots
 ![Homeoage Screenshot](./images/home.png)
+![Mountains Screenshot](./images/mountain.png)
+![Parks Screenshot](./images/park.png)

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="./data/scripts/locationData.js"></script>
     <script src="./scripts/parks_search.js"></script>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav-bar">
@@ -21,37 +23,34 @@
     <br>
     <br>
     <br>
- <main>
-
-     
-     <section class="hero">
-         <h1>Explore Beautiful Parks</h1>
-         <p>Discover nature's finest parks, perfect for hiking, relaxation, and family adventures.</p>
-        </section>
-        
-        <section class="filter-section">
-            <h2>Find Your Ideal Park</h2>
-            <select name="parkTypeSelect" id="parkTypeSelect" >
-                <option value="all">All Parks</option>
-                <option value="playground">Playground</option>
-                <option value="hiking">Hiking Trails</option>
-                <option value="picnic">Picnic Areas</option>
-            </select>
-            <button onclick="resetFilter()">Reset Filter</button>
+    <main>
+        <section class="hero">
+            <h1>Explore Beautiful Parks</h1>
+            <p>Discover nature's finest parks, perfect for hiking, relaxation, and family adventures.</p>
         </section>
         <section class="filter-section">
-            <h2>Select a park Location</h2>
-            <select name="parkLocationSelect" id="parkLocationSelect">
-                <option value="all">All Parks</option>
-                <option value="playground">Playground</option>
-                <option value="hiking">Hiking Trails</option>
-                <option value="picnic">Picnic Areas</option>
+            <h2>Select Location</h2>
+            <select name="parkLocationSelect" id="parkLocationSelect" required>
+                <option value="all">Select...</option>
             </select>
-            
         </section>
-        
+        <section class="filter-section">
+            <h2>Park Type</h2>
+            <select name="parkTypeSelect" id="parkTypeSelect">
+                <option value="all">Select...</option>
+                <option value="all">All Parks</option>
+            </select>
+            <button onclick="resetFilter()">Reset</button>
+        </section>
         <div id="results"></div>
-    
- </main>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Follow us on:</p>
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2024 Enjoy The Outdoors</p>
+    </footer>
 </body>
+
 </html>

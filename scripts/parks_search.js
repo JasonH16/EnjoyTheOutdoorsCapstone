@@ -4,48 +4,75 @@ function addPark(parkTypeName, parkTypeSelect) {
 function addLocation(text, target) {
     target.appendChild(new Option(text));
 }
-function Park(parkObject){
-    const e = document.createElement("pre");
+function Park(parkObject) {
+    // Create a div for each park card
+    const e = document.createElement("div");
+    e.classList.add("park-card"); // Add a class for styling
+
+    // Include a website link only if the park has a "Visit" property
     e.innerHTML = `
-        LocationID: "${parkObject.LocationID}",
-        LocationName: "${parkObject.LocationName}",
-        Address: "${parkObject.Address}",
-        City: "${parkObject.City}",
-        State: "${parkObject.State}",
-        ZipCode: ${parkObject.ZipCode},
-        Phone: "${parkObject.Phone}",
-        Fax: "${parkObject.Fax}",
-        Latitude: ${parkObject.Latitude},
-        Longitude: ${parkObject.Longitude},
+        <h3>${parkObject.LocationName}</h3>
+        <p><strong>Location:</strong> ${parkObject.City}, ${parkObject.State}</p>
+        <p><strong>Address:</strong> ${parkObject.Address}</p>
+        <p><strong>Zip Code:</strong> ${parkObject.ZipCode}</p>
+        <p><strong>Phone:</strong> ${parkObject.Phone}</p>
+        
+        ${parkObject.Visit ? `<a href="${parkObject.Visit}" target="_blank">Park Website</a>` : ""}
     `;
     return e;
 }
-function renderParks(){
+
+
+
+function renderParks() {
     const results = document.getElementById("results");
-    const selectedType = parkTypeSelect.value;
-    const selectedLocation = parkLocationSelect.value;
-    results.innerHTML = ""; //clear away the old
+    const selectedType = parkTypeSelect.value.toLowerCase();
+    const selectedLocation = parkLocationSelect.value.toLowerCase();
+    results.innerHTML = ""; // Clear old results
+
     let filtered = nationalParksArray;
-    if(selectedType){
-        filtered = filtered.filter(p=>p.LocationName.toLowerCase().includes(selectedType.toLowerCase()));
+
+    // Filter by park type if not "all"
+    if (selectedType && selectedType !== "all") {
+        filtered = filtered.filter(p => p.LocationName.toLowerCase().includes(selectedType));
     }
-    if(selectedLocation){
-        filtered = filtered.filter(p=>p.State.toLowerCase() === selectedLocation.toLowerCase())        
+    // Filter by location if not "all"
+    if (selectedLocation && selectedLocation !== "all") {
+        filtered = filtered.filter(p => p.State.toLowerCase() === selectedLocation);
     }
-    filtered.forEach( p => results.appendChild(Park(p)));
-    if(filtered.length < 1){
-        results.innerHTML = "No results found matching the filter.";
+
+    // Render filtered parks in a grid
+    if (filtered.length > 0) {
+        results.style.display = "grid"; // Set grid display for results
+        filtered.forEach(p => results.appendChild(Park(p)));
+    } else {
+        results.innerHTML = "<p>No results found matching the filter.</p>";
     }
 }
+
 function onContent() {
     const parkTypeSelect = document.getElementById("parkTypeSelect");
     const parkLocationSelect = document.getElementById("parkLocationSelect");
-    const results = document.getElementById("results");
+
+    // Populate dropdowns with options
     parkTypesArray.forEach(parkTypeName => addPark(parkTypeName, parkTypeSelect));
-    locationsArray.forEach(parkLocationName => addLocation(parkLocationName, parkLocationSelect))
-    //renderParks();
+    locationsArray.forEach(parkLocationName => addLocation(parkLocationName, parkLocationSelect));
+
+    // Listen for changes to the dropdowns
     parkTypeSelect.addEventListener("change", renderParks);
     parkLocationSelect.addEventListener("change", renderParks);
 }
+function resetFilter() {
+    const parkTypeSelect = document.getElementById("parkTypeSelect");
+    const parkLocationSelect = document.getElementById("parkLocationSelect");
 
+    // Reset dropdowns to "All" or "Select..." options
+    parkTypeSelect.value = "all";
+    parkLocationSelect.value = "all";
+
+    // Re-render parks based on the reset filter
+    renderParks();
+}
+
+// Initialize content after DOM is loaded
 document.addEventListener("DOMContentLoaded", onContent);

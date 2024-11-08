@@ -1,8 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-
-
 }
 
 html,
@@ -31,7 +29,7 @@ body {
     width: 100%;
     padding: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-color: white;
+    color: white;
     background-color: #333;
     display: flex;
     justify-content: center;
@@ -84,9 +82,6 @@ main {
     color: black;
 
 }
-
-
-
 
 button {
     background-color: aqua;
@@ -205,8 +200,10 @@ button {
     font-size: 1em;
     color: #555;
     background-color: #fff;
-    appearance: none; /* Remove default dropdown arrow */
-    -webkit-appearance: none; /* For Safari */
+    appearance: none;
+    /* Remove default dropdown arrow */
+    -webkit-appearance: none;
+    /* For Safari */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
@@ -236,7 +233,8 @@ button {
 }
 
 /* Adjust font-family for all inputs */
-.selection select, .selection button {
+.selection select,
+.selection button {
     font-family: Arial, sans-serif;
 }
 
@@ -248,11 +246,13 @@ button {
     padding: 20px;
     margin-top: 20px;
 }
+
 /* Styling for individual cards */
 .card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
     padding: 15px;
     text-align: center;
     transition: transform 0.3s ease;
@@ -260,7 +260,8 @@ button {
 
 /* Card hover effect */
 .card:hover {
-    transform: scale(1.03); /* Slightly enlarge the card on hover */
+    transform: scale(1.03);
+    /* Slightly enlarge the card on hover */
 }
 
 /* Card title */
@@ -309,6 +310,7 @@ button {
     text-align: center;
     padding: 80px 0;
 }
+
 #results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -341,15 +343,20 @@ button {
     color: #666;
     line-height: 1.4;
 }
+
 /* Wrapper to center the filter section on the page and stack selectors vertically */
 .filter-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em; /* Space between filter sections */
-    padding: 2em 0; /* Space around the section */
-    max-width: 400px; /* Set a consistent width */
-    margin: 0 auto; /* Center on the page */
+    gap: 1em;
+    /* Space between filter sections */
+    padding: 2em 0;
+    /* Space around the section */
+    max-width: 400px;
+    /* Set a consistent width */
+    margin: 0 auto;
+    /* Center on the page */
 }
 
 /* General styling for the filter section */
@@ -361,7 +368,8 @@ button {
     background-color: #f7f9fc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure both sections have the same width */
+    width: 100%;
+    /* Ensure both sections have the same width */
 }
 
 /* Title styling */
@@ -375,7 +383,8 @@ button {
 
 /* Dropdown (select) styling */
 .filter-section select {
-    width: 100%; /* Full width for consistent alignment */
+    width: 100%;
+    /* Full width for consistent alignment */
     padding: 0.75em;
     font-size: 1em;
     color: #333;
@@ -383,7 +392,8 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    appearance: none; /* Remove default arrow for a custom look */
+    appearance: none;
+    /* Remove default arrow for a custom look */
     text-align-last: center;
 }
 
@@ -396,7 +406,7 @@ button {
 }
 
 /* Hover and focus effects for select */
-.filter-section select:focus, 
+.filter-section select:focus,
 .filter-section select:hover {
     border-color: #007bff;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
@@ -424,9 +434,6 @@ button {
 .filter-section button:active {
     background-color: #004494;
 }
-
-
-
 
 .popup-content {
     background: #fff;
@@ -504,6 +511,7 @@ pre {
     font-weight: bold;
     /* Bold links for emphasis */
 }
+
 /* Slideshow container styling */
 .slideshow {
     position: relative;

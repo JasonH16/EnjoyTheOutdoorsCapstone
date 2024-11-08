@@ -80,6 +80,62 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Function to render a single mountain
+    async function renderSingleMountain(mountain) {
+        results.innerHTML = ""; // Clear previous content
+        results.style.display = "grid"; // Display results in grid format
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const coords = mountain.coords.lat.toFixed(3) + ", " + mountain.coords.lng.toFixed(3);
+
+        // Add content to the card with hidden sunrise/sunset section
+        card.innerHTML = `
+            <h3>${mountain.name}</h3>
+            <p><strong>Elevation:</strong> ${mountain.elevation}</p>
+            <p><strong>Effort:</strong> ${mountain.effort}</p>
+            <p><strong>Coordinates:</strong> (${coords})</p>
+            <p>${mountain.desc}</p>
+            <button class="sunset-button" data-lat="${mountain.coords.lat}" data-lng="${mountain.coords.lng}">Get Sunrise/Sunset</button>
+            <div class="sunrise-sunset" style="display: none;">
+                <p><strong>Sunrise:</strong> <span class="sunrise">N/A</span></p>
+                <p><strong>Sunset:</strong> <span class="sunset">N/A</span></p>
+            </div>
+        `;
+
+        // Add image if available
+        if (mountain.img) {
+            const img = document.createElement("img");
+            img.alt = "Mountain Image";
+            img.src = "data/images/" + mountain.img;
+            img.classList.add("card-image");
+            card.appendChild(img);
+        }
+
+        // Append the card to the results container
+        results.appendChild(card);
+
+        // Attach event listener to the "Get Sunrise/Sunset" button
+        const button = card.querySelector(".sunset-button");
+        button.addEventListener("click", async (e) => {
+            const lat = e.target.getAttribute("data-lat");
+            const lng = e.target.getAttribute("data-lng");
+
+            // Fetch sunrise and sunset times
+            const times = await getSunsetForMountain(lat, lng);
+            if (times) {
+                const card = e.target.parentElement;
+                card.querySelector(".sunrise").textContent = times.sunrise;
+                card.querySelector(".sunset").textContent = times.sunset;
+
+                // Toggle visibility of the sunrise/sunset info
+                const sunriseSunsetDiv = card.querySelector(".sunrise-sunset");
+                sunriseSunsetDiv.style.display = "block";
+            }
+        });
+    }
+
     // Display selected mountain or all mountains on dropdown change
     mountainsSelect.addEventListener("change", () => {
         const selectedValue = mountainsSelect.value;
@@ -98,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         results.innerHTML = ""; // Clear results on reset
     });
 });
+
 
 
 

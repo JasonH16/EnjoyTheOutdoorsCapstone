@@ -28,20 +28,23 @@
             <h1>Explore Beautiful Parks</h1>
             <p>Discover nature's finest parks, perfect for hiking, relaxation, and family adventures.</p>
         </section>
-        <section class="filter-section">
-            <h2>Select Location</h2>
-            <select name="parkLocationSelect" id="parkLocationSelect" required>
-                <option value="all">Select...</option>
-            </select>
-        </section>
-        <section class="filter-section">
-            <h2>Park Type</h2>
-            <select name="parkTypeSelect" id="parkTypeSelect">
-                <option value="all">Select...</option>
-                <option value="all">All Parks</option>
-            </select>
-            <button onclick="resetFilter()">Reset</button>
-        </section>
+        <div class="filter-wrapper">
+            <section class="filter-section">
+                <h2>Select Location</h2>
+                <select name="parkLocationSelect" id="parkLocationSelect" required>
+                    <option value="all">Select by Location</option>
+                </select>
+            </section>
+            <section class="filter-section">
+                <h2>Park Type</h2>
+                <select name="parkTypeSelect" id="parkTypeSelect">
+                    <option value="all">Select by Park Type</option>
+                    <option value="all">All Parks</option>
+                </select>
+                <button onclick="resetFilter()">Reset</button>
+            </section>
+        </div>
+        
         <div id="results"></div>
     </main>
     <footer class="footer">

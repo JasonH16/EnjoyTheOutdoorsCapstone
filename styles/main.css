@@ -31,7 +31,7 @@ body {
     width: 100%;
     padding: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
+color: white;
     background-color: #333;
     display: flex;
     justify-content: center;
@@ -81,7 +81,7 @@ body {
 main {
     position: center;
     margin-top: 80px;
-    color:black;
+    color: black;
 
 }
 
@@ -176,16 +176,68 @@ button {
 }
 
 /* Mountain Selection */
+/* Container styling */
 .selection {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 20px 0;
 }
 
+/* Heading styling */
+.selection h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
 
+/* Select dropdown styling */
+.selection select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #555;
+    background-color: #fff;
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none; /* For Safari */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Add custom arrow to select */
+.selection select:after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+}
+
+/* Button styling */
 .selection button {
-    margin-top: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0073e6;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.selection button:hover {
+    background-color: #005bb5;
+}
+
+/* Adjust font-family for all inputs */
+.selection select, .selection button {
+    font-family: Arial, sans-serif;
 }
 
 /* Information Display Area */
@@ -257,53 +309,6 @@ button {
     text-align: center;
     padding: 80px 0;
 }
-
-/* Filter Section */
-/* Center the filter-section container */
-.filter-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px auto; /* Center horizontally */
-    max-width: 400px;
-    width: 100%;
-}
-
-/* Center the dropdowns and button inside the filter section */
-.filter-section select, .filter-section button {
-    width: 100%;
-    text-align: center; /* Center-align the text inside the dropdown */
-    text-align-last: center; /* Center the selected option in Chrome and Firefox */
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #333;
-    outline: none;
-    cursor: pointer;
-    transition: border 0.2s ease-in-out;
-}
-
-.filter-section select:hover,
-.filter-section select:focus {
-    border: 1px solid #0078d4;
-}
-
-/* Adjust button styling if needed */
-.filter-section button {
-    margin-top: 10px;
-    background-color: #0078d4;
-    color: #fff;
-}
-
-
-
-/* Parks Grid */
 #results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -336,12 +341,90 @@ button {
     color: #666;
     line-height: 1.4;
 }
-
-.filter-section select, .filter-section button {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 1em;
+/* Wrapper to center the filter section on the page and stack selectors vertically */
+.filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em; /* Space between filter sections */
+    padding: 2em 0; /* Space around the section */
+    max-width: 400px; /* Set a consistent width */
+    margin: 0 auto; /* Center on the page */
 }
+
+/* General styling for the filter section */
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    background-color: #f7f9fc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure both sections have the same width */
+}
+
+/* Title styling */
+.filter-section h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Dropdown (select) styling */
+.filter-section select {
+    width: 100%; /* Full width for consistent alignment */
+    padding: 0.75em;
+    font-size: 1em;
+    color: #333;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none; /* Remove default arrow for a custom look */
+    text-align-last: center;
+}
+
+/* Add custom arrow */
+.filter-section select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1em;
+}
+
+/* Hover and focus effects for select */
+.filter-section select:focus, 
+.filter-section select:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Button styling */
+.filter-section button {
+    margin-top: 1em;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.filter-section button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.filter-section button:active {
+    background-color: #004494;
+}
+
 
 
 
@@ -420,4 +503,22 @@ pre {
 .footer-content a {
     font-weight: bold;
     /* Bold links for emphasis */
+}
+/* Slideshow container styling */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Hide all slides initially */
+.slideshow .slide {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+/* Show only the active slide */
+.slideshow .slide.active {
+    display: block;
 }
